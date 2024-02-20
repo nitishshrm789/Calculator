@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator in Web Tech</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+        .mdiv{
+            height: 100vh;
+            width: 100%;
+            background-color: white;
+            position: fixed;
+            top: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://i.gifer.com/Cwgf.gif'); 
+            background-repeat: no-repeat;
+            background-position: fixed;
+            background-size: cover;
+            
+        }
+        .op{
+            height: 100px;
+            width: 250px;
+            margin-left: 5px;
+        }
+        .calc{
+            width: 260px;
+            height: 400px;
+            background-color: black;
+        }
+        .op{
+            text-align: right;
+            color: white;
+            font-size: 40px;
+        }
+        .btn-1{
+            height: 50px;
+            width: 50px;
+            background-color: gray;
+            border-radius: 50%;
+            color: white;
+            margin: 5px 5px;
+            border: none;
+            
+        }
+        .btn-2{
+            height: 50px;
+            width: 50px;
+            background-color: orange;
+            border-radius: 50%;
+            margin: 5px 5px;
+            border: none;
+        }
+        .btn-3{
+            height: 50px;
+            width: 110px;
+            background-color: gray;
+            border-radius: 30px 30px 30px 30px;
+            color: white;
+            margin: 5px 7px;
+            border: none;
+        }
+        .op{
+            background-color: black;
+            border: none;
+        }
+        .calc{
+            border-radius: 25px 25px 30px 30px;
+        }
+        .op{
+            border-radius: 30px 30px 0px 0px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mdiv">
+        
+        <div class="calc">
+            <form>
+                <div class="mainbox">
+                    <input type="text" name="op" id="op" class="op">
+                </div>
+                <div>
+                    <input type="button" name="AC" value="AC" onclick="op.value=''" class="btn-1">
+                    
+                    <input type="button" name="C" value="C" onclick="deleteLast()" class="btn-1">
+                    <input type="button" name="mod" value="%" onclick="op.value+='%'" class="btn-1">
+                    <input type="button" name="operator" value="/" onclick="op.value+='/'" class="btn-2">
+                </div>
+
+                <div>
+                    <input type="button" name="number" value="7" onclick="op.value+='7'" class="btn-1">
+                    <input type="button" name="number" value="8" onclick="op.value+='8'" class="btn-1">
+                    <input type="button" name="number" value="9" onclick="op.value+='9'" class="btn-1">
+                    <input type="button" name="operator" value="x" onclick="op.value+='*'" class="btn-2">
+                </div>
+
+                <div>
+                    <input type="button" name="number" value="4" onclick="op.value+='4'" class="btn-1">
+                    <input type="button" name="number" value="5" onclick="op.value+='5'" class="btn-1">
+                    <input type="button" name="number" value="6" onclick="op.value+='6'" class="btn-1">
+                    <input type="button" name="operator" value="-" onclick="op.value+='-'" class="btn-2">
+                </div>
+
+                <div>
+                    <input type="button" name="number" value="1" onclick="op.value+='1'" class="btn-1">
+                    <input type="button" name="number" value="2" onclick="op.value+='2'" class="btn-1">
+                    <input type="button" name="number" value="3" onclick="op.value+='3'" class="btn-1">
+                    <input type="button" name="operator" value="+" onclick="op.value+='+'" class="btn-2">
+                </div>
+
+                <div>
+                    <input type="button" name="number" value="0" onclick="op.value+='0'" class="btn-3">
+                    
+                    <input type="button" name="operator" value="." onclick="op.value+='.'" class="btn-1">
+                    <input type="button" name="operator" value="=" onclick="op.value=eval(op.value)" class="btn-2">
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function deleteLast() {
+            
+            var display = document.getElementById('op');
+            var currentValue = display.value;
+    
+            if (currentValue.length > 0) {
+                var newValue = currentValue.slice(0, -1);
+                display.value = newValue;
+            }
+        }
+    </script>
+
+</body>
+</html>
